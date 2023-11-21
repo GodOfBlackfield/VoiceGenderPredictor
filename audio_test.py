@@ -63,7 +63,7 @@ def spectral_prop(d,r):
 
 def gender(rate,data):
     spec_prop = spectral_prop(data,rate)
-    filename = "C:/Users/sones/Desktop/Program/Python/ML-1/Files/voice_model.pickle"
+    filename = "./voice_model.pickle"
     loaded_model = pickle.load(open(filename,'rb'))
     specprop = pd.DataFrame.from_dict(spec_prop)
     #print(specprop)
@@ -75,8 +75,7 @@ def gender(rate,data):
         return "female"
     return "male"
 
-# r1,d1 = scipy.io.wavfile.read("C:/Users/sones/Downloads/standard_recording.wav")
-rate,data = scipy.io.wavfile.read("C:/Users/sones/Desktop/Program/Python/vr/new.wav")
+rate,data = scipy.io.wavfile.read("<path to voice>")
 if (type(data[0]) == np.ndarray):
     data = data[:,0]
 res = gender(rate,data)
